@@ -24,7 +24,7 @@
 #
 def parse(hgpl): # hpgl to polyline # todo, full parsing...
 	if type(hpgl) == str:
-		hpgl = hpgl.split(';')
+		hpgl = hpgl.split(';\n')
 	assert type(hpgl)==list, 'hpgl must be a list or string'
 	err = []
 	poly = []

@@ -76,14 +76,10 @@ pprint(p.data)
 #pprint(p.toPolyline(.0097))
 hpgl = plot.toHPGL()
 print hpgl
-print len(hpgl.split(';'))
+print len(hpgl.split(';\n'))
 
 #p.setOvercut('.01')
 #pprint(p.data)
 
 #pprint(p.data)
 """
-
-
-
-

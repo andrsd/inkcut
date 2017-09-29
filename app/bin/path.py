@@ -400,7 +400,7 @@ class Plot:
 
 		hpgl.append('PU%d,%d'%(self.finishPosition[0]*self.scale,self.finishPosition[1]*self.scale))
 		hpgl.extend(['IN'])
-		return ";".join(hpgl)+";"
+		return ";\n".join(hpgl)+";"
 
 
 class Graphic: # a group of paths
@@ -871,4 +871,3 @@ def addPoints(p0,p1):
 	for c0,c1 in zip(p0,p1):
 		p.append(c0+c1)
 	return p
-

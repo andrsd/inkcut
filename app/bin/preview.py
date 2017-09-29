@@ -67,7 +67,7 @@ def hpgl(plot):
 	"""
 	spPU = [['M',[0,0]]]
 	spPD = []
-	for c in plot.toHPGL().split(';'):
+	for c in plot.toHPGL().split(';\n'):
 		if c[:2] == "PU":
 			p = map(int,c[2:].split(','))
 			spPD.append(['M',p])
@@ -105,7 +105,7 @@ def inkscape(hpgl,svg,inkex):
 	layer.set(inkex.addNS('groupmode', 'inkscape'), 'layer')
 	spPU = [['M',[0,0]]]
 	spPD = []
-	for c in hpgl.split(';'):
+	for c in hpgl.split(';\n'):
 		if c[:2] == "PU":
 			p = map(int,c[2:].split(','))
 			spPD.append(['M',p])
@@ -134,4 +134,3 @@ def inkscape(hpgl,svg,inkex):
 	# Connect elements together.
 	layer.append(pu)
 	layer.append(pd)
-
