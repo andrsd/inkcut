@@ -71,6 +71,7 @@
                   <object class="GtkVBox" id="vbox3">
                     <property name="visible">True</property>
                     <property name="spacing">4</property>
+                    <property name="width_request">220</property>
                     <child>
                       <object class="GtkFrame" id="frame2">
                         <property name="visible">True</property>
@@ -134,7 +135,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="material-w">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -183,7 +184,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="material-l">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -231,7 +232,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="margin-spin">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -400,7 +401,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="copy-colspace">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -448,7 +449,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="copy-rowspace">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -529,7 +530,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="posx">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -577,7 +578,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkSpinButton" id="posy">
-                                        <property name="width_request">60</property>
+                                        <property name="width_request">80</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">&#x25CF;</property>
@@ -1520,7 +1521,7 @@ This is not supported by all plotters.</property>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="adjustment">
-                                    <property name="width_request">60</property>
+                                    <property name="width_request">90</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">&#x25CF;</property>
@@ -1601,7 +1602,7 @@ This is not supported by all plotters.</property>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="dim-wid-spin">
-                                    <property name="width_request">60</property>
+                                    <property name="width_request">90</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">&#x25CF;</property>
@@ -1648,7 +1649,7 @@ This is not supported by all plotters.</property>
                                 </child>
                                 <child>
                                   <object class="GtkSpinButton" id="dim-len-spin">
-                                    <property name="width_request">60</property>
+                                    <property name="width_request">90</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="invisible_char">&#x25CF;</property>
