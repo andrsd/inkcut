@@ -81,24 +81,19 @@ class Device:
 			else:
 				return False;
 
-		def toPrinter(data,printer):
-			assert type(data) == str, "input data must be a str type"
+		def toPrinter(filename, printer):
+			assert type(filename) == str, "file name must be a str type"
 			assert type(printer) == str, "printer name must be a string"
 
-			printer = os.popen('lpr -P %s'%(printer),'w')
-			printer.write(data)
+			printer = os.popen('lpr -P %s %s' % (printer, filename), 'w')
 			printer.close()
 			return True;
 
 
-		f=open(filename,'r')
 		if self.interface=='printer':
-			toPrinter(f.read(),self.name)
+			toPrinter(filename, self.name)
 		elif self.interface=='serial':
-			toSerial(f.read(),self.serial)
+			f = open(filename, 'r')
+			toSerial(f.read(), self.serial)
 		else:
 			raise AssertionError('Invalid interface type, only printers and serial connections are supported.')
-
-
-
-
