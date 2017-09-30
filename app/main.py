@@ -70,7 +70,7 @@ class Application(object):
 
 		#-----------------------saved widgets--------------------
 		widgets = ['offset','overcut','smoothness','textviewlog','preview1','preview2','pathh','pathw',
-			'material','material-length','material-width','velocity','force','traces','feed','scale','copies','posnx','posny',
+			'material','material-length','material-width','cutSettings','velocity','force','traces','feed','scale','copies','posnx','posny',
 			'spacing-row','spacing-col','margin','tile-col','tile-row','weed_box','weed_v_box','weed_h_box',
 			'overcut-box','offset-box','cutter-box','file-box','feeding1','feeding2','invert-box','rotate-box','filechooserbutton1',
 			'plotdata','plotdetails','inkscape_preview','order_box','order_combo',
@@ -94,6 +94,7 @@ class Application(object):
 		self.on_pos_value_changed()
 		self.on_spacing_value_changed()
 		self.on_margin_value_changed()
+		self.on_cutSettings_toggled(self.gui['cutSettings'])
 		self.on_velocity_value_changed()
 		self.on_force_value_changed()
 		self.on_traces_value_changed()
