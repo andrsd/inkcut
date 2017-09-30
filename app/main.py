@@ -70,7 +70,7 @@ class Application(object):
 
 		#-----------------------saved widgets--------------------
 		widgets = ['offset','overcut','smoothness','textviewlog','preview1','preview2','pathh','pathw',
-			'material','material-length','material-width','velocity','force','feed','scale','copies','posnx','posny',
+			'material','material-length','material-width','velocity','force','traces','feed','scale','copies','posnx','posny',
 			'spacing-row','spacing-col','margin','tile-col','tile-row','weed_box','weed_v_box','weed_h_box',
 			'overcut-box','offset-box','cutter-box','file-box','feeding1','feeding2','invert-box','rotate-box','filechooserbutton1',
 			'plotdata','plotdetails','inkscape_preview','order_box','order_combo',
@@ -96,6 +96,7 @@ class Application(object):
 		self.on_margin_value_changed()
 		self.on_velocity_value_changed()
 		self.on_force_value_changed()
+		self.on_traces_value_changed()
 		self.on_feeding_group_changed()
 		self.on_invertbox_toggled(None)
 		self.on_smoothness_value_changed()
@@ -324,6 +325,9 @@ class Application(object):
 
 	def on_force_value_changed(self,spinbutton=None,data=None):
 		self.plot.force = self.gui['force'].get_value()
+
+	def on_traces_value_changed(self,spinbutton=None,data=None):
+		self.plot.pathRepeat = int(self.gui['traces'].get_value())
 
 	def on_scale_value_changed(self,spinbutton=None,data=None):
 		self.plot.setScale(self.gui['scale'].get_value()*1016/units['in'])

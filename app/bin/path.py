@@ -54,7 +54,8 @@ class Plot:
 			'weedVertical':False,
 			'weedBox':False,
 			'sortTracking':False,
-			'sortFastest':False
+			'sortFastest':False,
+			'pathRepeat':1
 		}
 		default.update(settings) # update with passed in data
 
@@ -371,13 +372,13 @@ class Plot:
 			else: # sortFastest, dont know algorithm yet...
 				paths.sort(key=lambda p: math.sqrt(p.bbox[1]**2+p.bbox[0]**2))
 			for path in paths:
-				hpgl.extend(path.toHPGL())
+				hpgl.extend(path.toHPGL(self.pathRepeat))
 		# sort on a per clone basis
 		else:
 			for clone in clones:
 				# quick sort 4 tracking...
 				#clone.paths.sort(key=lambda p: p.bbox[1])
-				hpgl.extend(clone.toHPGL())
+				hpgl.extend(clone.toHPGL(self.pathRepeat))
 
 		return hpgl
 
@@ -547,10 +548,10 @@ class Graphic: # a group of paths
 		return spl
 
 	# --------------------------graphic export --------------------------
-	def toHPGL(self):
+	def toHPGL(self, repeat=1):
 		hpgl = []
 		for path in self.paths:
-			hpgl.extend(path.toHPGL())
+			hpgl.extend(path.toHPGL(repeat))
 		return hpgl
 
 class Path: # a single path
@@ -852,7 +853,7 @@ class Path: # a single path
 		return poly
 
 
-	def toHPGL(self):
+	def toHPGL(self, repeat=1):
 		# get final polyline
 		poly = self.toPolyline()
 		poly = self.applyOvercut(poly)
@@ -860,10 +861,12 @@ class Path: # a single path
 
 		# convert to hpgl
 		hpgl = []
-		line = poly.pop(0) # first is moveto/pen up
-		hpgl.append('PU%d,%d'%(round(line[1][0]*self.scale),round(line[1][1]*self.scale)))
-		for line in poly:
-			hpgl.append('PD%d,%d'%(round(line[1][0]*self.scale),round(line[1][1]*self.scale)))
+		st = poly.pop(0) # first is moveto/pen up
+		for i in range(0, repeat):
+			if i == 0 or not self.closed:
+				hpgl.append('PU%d,%d' % (round(st[1][0] * self.scale), round(st[1][1] * self.scale)))
+			for line in poly:
+				hpgl.append('PD%d,%d' % (round(line[1][0] * self.scale), round(line[1][1] * self.scale)))
 		return hpgl
 
 def addPoints(p0,p1):
