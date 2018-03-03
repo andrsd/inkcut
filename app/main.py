@@ -109,6 +109,7 @@ class Application(object):
 		self.on_order_changed(self.gui['order_box'])
 		self.on_reset_stack_btn_clicked(self.gui['copies'])
 		self.on_order_changed(self.gui['order_combo'])
+		self.on_calibration_value_changed(self.gui['calibration'])
 
 
 
